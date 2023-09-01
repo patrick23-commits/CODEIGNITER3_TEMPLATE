@@ -75,6 +75,7 @@
         </div>
     </div>
 </main>
+
 <div id = "modal" class="hide">
     <div id = modal-holder class="card p-3 shadow-lg m-3">
     <section id = "modal-header">
@@ -97,7 +98,7 @@
         <input id = "id_gender" type="text" placeholder="Gender" class="form-control" disabled>
         <input id = "id_address" type="text" placeholder="Address" class="form-control" disabled>
         <input id = "id_num" type="text" placeholder="Contact Number" class="form-control" disabled>
-        <input id = "id_bday" type="text" placeholder="Birthday" class="form-control" disabled>
+        <input id = "id_bday" type="date" placeholder="Birthday" class="form-control" disabled>
     </section>
     <section id = "modal-action">
         <button class="btn btn-danger" onclick="modal_close()">

@@ -37,7 +37,9 @@ document.forms[0].addEventListener("submit", (e)=>{
             $("#id_gender").val(user.gender)
             $("#id_address").val(user.address)
             $("#id_num").val(user.num)
-            $("#id_bday").val(user.bday)
+
+            const BDAY = new Date(user.bday);
+            $("#id_bday").val(BDAY.getFullYear() + '-' + (("0" + (BDAY.getMonth() + 1)).slice(-2)) + '-' + (("0" + BDAY.getDate()).slice(-2)));
             modal_open(); 
         }else{
             addNotif("Login Failed", "User not found or deactivated", "r")
@@ -137,7 +139,7 @@ function save(id){
         document.getElementById("fname_"+id).disabled = true;
         document.getElementById("mname_"+id).disabled = true;
         document.getElementById("lname_"+id).disabled = true;
-        addNotif("Account Saved!", "Save Successfully", "g");
+        addNotif("Account Updated!", "Successfully saved!", "g");
     })
 
     
@@ -163,7 +165,7 @@ function del(id) {
     }).then(result=>{
         console.log(result)
         load_data()
-        addNotif("Accout Deleted!", "Delete Succuessfully!", "g")
+        addNotif("Accout Deleted!", "Succuessfully deleted!", "g")
     })
 }
 
@@ -172,6 +174,8 @@ function modal_close() {
 }
 
 function modal_open() {
+    disable_info_fields();
+
     $("#modal").removeClass("hide");
 }
 
@@ -191,18 +195,7 @@ function edit_user(){
 }
 
 function save_user(){
-    $("#id_firstname").attr("disabled","disabled")
-    $("#id_middlename").attr("disabled","disabled")
-    $("#id_lastname").attr("disabled","disabled")
-    $("#id_nickname").attr("disabled","disabled")
-    $("#id_age").attr("disabled","disabled")
-    $("#id_gender").attr("disabled","disabled")
-    $("#id_address").attr("disabled","disabled")
-    $("#id_num").attr("disabled","disabled")
-    $("#id_bday").attr("disabled","disabled")
-
-    $("#btn-edit-user").removeClass("hide");
-    $("#btn-save-user").addClass("hide");
+    disable_info_fields();
 
     const form = new FormData();
     form.append("id",$("#id_id").val())
@@ -221,4 +214,19 @@ function save_user(){
     }).then(()=>{
         addNotif("Account Updated!", "Successfully saved!", "g");
     })
+}
+
+function disable_info_fields(){
+    $("#id_firstname").attr("disabled","disabled")
+    $("#id_middlename").attr("disabled","disabled")
+    $("#id_lastname").attr("disabled","disabled")
+    $("#id_nickname").attr("disabled","disabled")
+    $("#id_age").attr("disabled","disabled")
+    $("#id_gender").attr("disabled","disabled")
+    $("#id_address").attr("disabled","disabled")
+    $("#id_num").attr("disabled","disabled")
+    $("#id_bday").attr("disabled","disabled")
+
+    $("#btn-edit-user").removeClass("hide");
+    $("#btn-save-user").addClass("hide");
 }
