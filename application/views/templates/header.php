@@ -39,7 +39,7 @@
 </head>
 
 <header>
-    HEADER
+    Motortrade
 </header>
 
 <div id="holder"></div>
