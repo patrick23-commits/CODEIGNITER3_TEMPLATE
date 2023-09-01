@@ -8,8 +8,8 @@ class Login_Model extends CI_Model {
         $this->load->database();
     }
 
-    public function validateAccount($uname, $pword) : array{
-      
+    public function validateAccount($uname, $pword): array{
+        
         return $this->db->query(
         "SELECT 
             login.id `id`,
@@ -20,7 +20,7 @@ class Login_Model extends CI_Model {
             info.age `age`,
             info.gender `gender`,
             info.address `address`,
-            lpad(contact_num, 10, '0') `num`,
+            lpad(contact_num, 11, '0') `num`,
             info.bday `bday`
         FROM ojt_test_db.login as login
         INNER JOIN ojt_test_db.info_id as info
