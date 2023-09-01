@@ -1,0 +1,11 @@
+header{
+    background-color: #3498DB;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hide;
+}

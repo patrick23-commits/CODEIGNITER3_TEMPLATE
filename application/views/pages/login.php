@@ -1,155 +1,114 @@
-
-
-<section>
-    <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Data</button>
-        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Login</button>
-        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">register</button>
+<main>
+    <div id="navigator" class="">
+        <section id="nav-name">
+            <a href="#">Simple CRUD System</a>
+        </section>
+        <section id="nav-btns">
+            <button data-tab="home" class="btn_tab" id="btn_home">Home</button>
+            <button data-tab="data" class="btn_tab" onclick="load_data()" id="btn_data">Data</button>
+            <button data-tab="register" class="btn_tab" id="btn_reg">Register</button>
+            <button data-tab="login" class="btn_tab" id="btn_login">Login</button>
+        </section>
     </div>
-    </nav>
-
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div class="card p-5 m-3 shadow-lg ">
-                <table id="tbl-accounts" class="table display"> </table>
-            </div>
+    <div id="home" class="tab ">
+        <div class="card p-5 m-3 shadow-lg ">
+            <h1>WELCOME!</h1>
         </div>
-
-        <div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="d-flex justify-content-center">
-                <div class="card p-5 shadow-lg m-3" style="max-width:50%">
-                    <form action="login/validate" method="post" id="login-form">
-                        <span>
-                            <h1>Login</h1>
-                        </span>
-                        <div class="form-group">
-                            <!-- <label for="username">Username</label> -->
-                            <input class="form-control" type="text" name="username" placeholder="Username" id="username" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <!-- <label for="password">Password</label> -->
-                            <input class="form-control" type="text" name="password" placeholder="Password" id="password" required>
-                        </div>
-                        <br>
-                        <span>
-                            <button class="btn btn-primary" type="submit" id="btn-log">Login</button>
-                        </span>
-                    </form>
+    </div>
+    <div id="data" class="tab hide">
+        <div class="card m-3 shadow-lg ">
+            <table id="tbl-accounts" class="table display"></table>
+        </div>
+    </div>
+    <div id="login" class="tab hide">
+        <div class="card p-5 shadow-lg m-3">
+            <form method="post" id="login-form">
+                <span>
+                    <h1>Login</h1>
+                </span>
+                <div class="form-group">
+                    <!-- <label for="username">Username</label> -->
+                    <input class="form-control" type="text" name="username" placeholder="Username" id="username" required>
                 </div>
-            </div>
-        
-        </div>
-
-        <div class="tab-pane fade d-flex justify-content-center" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            <div class="card p-5 shadow-lg m-3" style="max-width: 50%;"> 
-                <form action="login/register" method="post" class="d-flex flex-column">
-                    <span>
-                        <h1>Register</h1>
-                    </span>
-                    <span>
-                        <!-- <label for="firstname">Firstname</label> -->
-                        <input class="m-1 form-control" type="text" name="firstname" id="firstname" placeholder="Firstname" required>
-                    </span>
-                    <span>
-                        <!-- <label for="middlename">Middlename</label> -->
-                        <input class="m-1 form-control" type="text" name="middlename" id="middlename" placeholder="Middlename" required>
-                    </span>
-                    <span>
-                        <!-- <label for="lastname">Lastname</label> -->
-                        <input class="m-1 form-control" type="text" name="lastname" id="lastname" placeholder="Lastname" required>
-                    </span>
-                    <span>
-                        <!-- <label for="username">Username</label> -->
-                        <input class="m-1 form-control" type="text" name="username" id="username" placeholder="Username" required>
-                    </span>
-                    <span>
-                        <!-- <label for="password">Password</label> -->
-                        <input class="m-1 form-control" type="password" name="password" id="password" placeholder="Password" required>
-                    </span>
-                    <span>
-                        <button class="m-1 btn btn-primary" type="submit" id="btn-reg">Register</button>
-                    </span>
-                </form>
-            </div>
+                <br>
+                <div class="form-group">
+                    <!-- <label for="password">Password</label> -->
+                    <input class="form-control" type="text" name="password" placeholder="Password" id="password" required>
+                </div>
+                <br>
+                <span>
+                    <button class="btn btn-primary" type="submit" id="btn-log">Login</button>
+                </span>
+            </form>
         </div>
     </div>
-
-</section>
-
-<script>
-
-    // $("#tbl-accounts").dataTable({
-    //     data : {"data":{
-    //             "1" : {"First Name":"fred","Middle Name":"g","Last Name":"landicho"},
-    //             "2" : {"First Name":"shandy","Middle Name":"t","Last Name":"buena"}
-    //         }
-    //     }   
-    //  });
-
-    $("#tbl-accounts").dataTable({
-        data : <?=$accounts;?>,
-        columns : [
-            {'data' : 'First Name'},
-            {'data' : 'Middle Name'},
-            {'data' : 'Last Name'}
-        ],
-        paging : false,
-    });
-
-    // $("#btn-log").on("click", function (e) {
-    //     e.preventDefault();
-
-    //     console.log(e);
-
-    // });
-
-    // const log = document.getElementById("btn-log");
-    // log.addEventListener("click", (e)=>{ 
-    //     e.preventDefault();
-        
-
-    //     const loginForm = document.getElementById("login-form");
-
-    //     loginForm.style.backgroundColor = 'red';
-
-
-    // });
-
-    // const reg = document.getElementById("btn-reg");
-    // reg.addEventListener("submit", (e)=>{
-    //     e.preventDefault();
-    // });
-
-    
-
-
-
-</script>
-
-<style>
-    main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    main > form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    main > form > span {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    main > form > span > h1 {
-        width: 100%;
-        text-align: center;
-    }
-</style>
+    <div id="register" class="tab hide">
+        <div class="card p-5 shadow-lg m-3"> 
+            <form action="login/register" method="post" class="reg-form">
+                <span>
+                    <h1>Register</h1>
+                </span>
+                <span>
+                    <!-- <label for="firstname">Firstname</label> -->
+                    <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Firstname" required>
+                </span>
+                <span>
+                    <!-- <label for="middlename">Middlename</label> -->
+                    <input class="form-control" type="text" name="middlename" id="middlename" placeholder="Middlename" required>
+                </span>
+                <span>
+                    <!-- <label for="lastname">Lastname</label> -->
+                    <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Lastname" required>
+                </span>
+                <span>
+                    <!-- <label for="username">Username</label> -->
+                    <input class="form-control" type="text" name="username" id="uname" placeholder="Username" required>
+                </span>
+                <span>
+                    <!-- <label for="password">Password</label> -->
+                    <input class="form-control" type="password" name="password" id="pass" placeholder="Password" required>
+                </span>
+                <span>
+                    <button class="btn btn-primary" type="submit" id="btn-reg">Register</button>
+                </span>
+            </form>
+        </div>
+    </div>
+</main>
+<div id = "modal" class="hide">
+    <div id = modal-holder class="card p-3 shadow-lg m-3">
+    <section id = "modal-header">
+        <span id = "modal-title">
+            YOUR INFORMATION
+        </span>
+        <span id = "modal-close">
+            <button id = "btn-modal-close" onclick="modal_close()">
+            <i class="fa-solid fa-xmark"></i>
+            </button>
+        </span>
+    </section>
+    <section id = "modal-body">
+        <input id = "id_id" type="hidden" value="">
+        <input id = "id_firstname" type="text" placeholder="First Name" class="form-control" disabled>
+        <input id = "id_middlename" type="text" placeholder="Middle Name" class="form-control" disabled>
+        <input id = "id_lastname" type="text" placeholder="Last Name" class="form-control" disabled>
+        <input id = "id_nickname" type="text" placeholder="Nickname" class="form-control" disabled>
+        <input id = "id_age" type="text" placeholder="Age" class="form-control" disabled>
+        <input id = "id_gender" type="text" placeholder="Gender" class="form-control" disabled>
+        <input id = "id_address" type="text" placeholder="Address" class="form-control" disabled>
+        <input id = "id_num" type="text" placeholder="Contact Number" class="form-control" disabled>
+        <input id = "id_bday" type="text" placeholder="Birthday" class="form-control" disabled>
+    </section>
+    <section id = "modal-action">
+        <button class="btn btn-danger" onclick="modal_close()">
+            CANCEL
+        </button>
+        <button id = "btn-edit-user" class="btn btn-primary" onclick="edit_user()">
+            EDIT
+        </button>
+        <button id = "btn-save-user" class="btn btn-success hide" onclick="save_user()">
+            SAVE
+        </button>
+    </section>
+    </div>   
+</div>
