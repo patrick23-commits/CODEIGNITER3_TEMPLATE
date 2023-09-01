@@ -34,6 +34,7 @@ class Login extends CI_Controller {
 
         $username = $this->input->post('username');
         $password = $this->input->post('password'); 
+        
         echo json_encode($this->Login_Model->validateAccount($username, $password));
     }
     public function edit() {

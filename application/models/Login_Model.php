@@ -8,8 +8,8 @@ class Login_Model extends CI_Model {
         $this->load->database();
     }
 
-    public function validateAccount($uname, $pword) : array{
-      
+    public function validateAccount($uname, $pword): array{
+        
         return $this->db->query(
         "SELECT 
             login.id `id`,
