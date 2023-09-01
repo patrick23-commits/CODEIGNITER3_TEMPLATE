@@ -80,7 +80,8 @@
     <div id = modal-holder class="card p-3 shadow-lg m-3">
     <section id = "modal-header">
         <span id = "modal-title">
-            YOUR INFORMATION
+            <p id="login-title" class="hide">YOUR INFORMATION</p>
+            <p id="delete-title" class="hide">Delete item</p>
         </span>
         <span id = "modal-close">
             <button id = "btn-modal-close" onclick="modal_close()">
@@ -89,26 +90,37 @@
         </span>
     </section>
     <section id = "modal-body">
-        <input id = "id_id" type="hidden" value="">
-        <input id = "id_firstname" type="text" placeholder="First Name" class="form-control" disabled>
-        <input id = "id_middlename" type="text" placeholder="Middle Name" class="form-control" disabled>
-        <input id = "id_lastname" type="text" placeholder="Last Name" class="form-control" disabled>
-        <input id = "id_nickname" type="text" placeholder="Nickname" class="form-control" disabled>
-        <input id = "id_age" type="text" placeholder="Age" class="form-control" disabled>
-        <input id = "id_gender" type="text" placeholder="Gender" class="form-control" disabled>
-        <input id = "id_address" type="text" placeholder="Address" class="form-control" disabled>
-        <input id = "id_num" type="text" placeholder="Contact Number" class="form-control" disabled>
-        <input id = "id_bday" type="date" placeholder="Birthday" class="form-control" disabled>
+        <div id="login-info" class="hide">
+            <input id = "id_id" type="hidden" value="">
+            <input id = "id_firstname" type="text" placeholder="First Name" class="form-control" disabled>
+            <input id = "id_middlename" type="text" placeholder="Middle Name" class="form-control" disabled>
+            <input id = "id_lastname" type="text" placeholder="Last Name" class="form-control" disabled>
+            <input id = "id_nickname" type="text" placeholder="Nickname" class="form-control" disabled>
+            <input id = "id_age" type="text" placeholder="Age" class="form-control" disabled>
+            <input id = "id_gender" type="text" placeholder="Gender" class="form-control" disabled>
+            <input id = "id_address" type="text" placeholder="Address" class="form-control" disabled>
+            <input id = "id_num" type="text" placeholder="Contact Number" class="form-control" disabled>
+            <input id = "id_bday" type="date" placeholder="Birthday" class="form-control" disabled>
+        </div>
+
+        <div id="delete-confirmation" class="hide">
+            <span>Message</span>
+        </div>
+
     </section>
     <section id = "modal-action">
-        <button class="btn btn-danger" onclick="modal_close()">
+        <button class="btn btn-secondary" onclick="modal_close()">
             CANCEL
         </button>
-        <button id = "btn-edit-user" class="btn btn-primary" onclick="edit_user()">
+        <button id = "btn-edit-user" class="btn btn-primary hide" onclick="edit_user()">
             EDIT
         </button>
         <button id = "btn-save-user" class="btn btn-success hide" onclick="save_user()">
             SAVE
+        </button>
+
+        <button id="btn-del-user" class="btn btn-warning hide">
+            DELETE    
         </button>
     </section>
     </div>   

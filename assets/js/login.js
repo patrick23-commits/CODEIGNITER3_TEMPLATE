@@ -40,7 +40,7 @@ document.forms[0].addEventListener("submit", (e)=>{
 
             const BDAY = new Date(user.bday);
             $("#id_bday").val(BDAY.getFullYear() + '-' + (("0" + (BDAY.getMonth() + 1)).slice(-2)) + '-' + (("0" + BDAY.getDate()).slice(-2)));
-            modal_open(); 
+            modal_open("login"); 
         }else{
             addNotif("Login Failed", "User not found or deactivated", "r")
         }
@@ -155,26 +155,42 @@ function edit(id) {
 }
 
 function del(id) {
-    const form = new FormData();
-    form.append("id", id);
+    modal_open("del")
+    // const form = new FormData();
+    // form.append("id", id);
 
-    fetch("./login/delete", {
-        method : "POST",
-        body : form
+    // fetch("./login/delete", {
+    //     method : "POST",
+    //     body : form
 
-    }).then(result=>{
-        console.log(result)
-        load_data()
-        addNotif("Accout Deleted!", "Succuessfully deleted!", "g")
-    })
+    // }).then(result=>{
+    //     console.log(result)
+    //     load_data()
+    //     addNotif("Accout Deleted!", "Successfully deleted!", "g")
+    // })
 }
 
 function modal_close() {
     $("#modal").addClass("hide");
 }
 
-function modal_open() {
-    disable_info_fields();
+function modal_open(flag) {
+    if(flag == "login") {
+        $("#login-info").removeClass("hide");
+        $("#delete-confirmation").addClass("hide");
+
+        $("#btn-edit-user").removeClass("hide");
+        $("#btn-del-user").addClass("hide");
+
+        disable_info_fields();
+    } else if(flag == "del") {
+        $("#login-info").addClass("hide");
+        $("#delete-confirmation").removeClass("hide");
+
+        $("#btn-del-user").removeClass("hide");
+        $("#btn-edit-user").addClass("hide");        
+    }
+    
 
     $("#modal").removeClass("hide");
 }

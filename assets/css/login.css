@@ -103,7 +103,7 @@ main > #navigator * {
     flex-direction: column;
     gap: 1rem;   
 }
-#modal-body{
+#modal-body > div{
     display: flex;
     flex-direction: column;
     gap: 1rem;
