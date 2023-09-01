@@ -1,6 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
+defined('BASEPATH') OR exit('No direct script access allowed'); 
 class Login extends CI_Controller { 
     public function __construct() { 
         parent::__construct();
@@ -35,9 +34,6 @@ class Login extends CI_Controller {
 
         $username = $this->input->post('username');
         $password = $this->input->post('password'); 
-
-        // print_r($this->Login_Model->validateAccount($username, $password));
-
         echo json_encode($this->Login_Model->validateAccount($username, $password));
     }
     public function edit() {

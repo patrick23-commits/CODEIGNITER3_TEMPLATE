@@ -1,0 +1,33 @@
+footer {
+    background: linear-gradient(to left,#3498DB 30%, #087bc8 50%, #3498DB);
+    background-size: 200%;
+    color: white;
+    height: 10vh;
+    animation: change-loc 2s ease-out  infinite forwards;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer > span {
+    padding-right: .25rem;
+    border: none
+}
+.show-border {
+    border-right: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+@keyframes change-loc {
+    0% {
+        background-position: 0%;
+    }
+   50% {
+    background-position: 100%;
+   }
+    100% {
+        background-position: 200%;
+    }
+}

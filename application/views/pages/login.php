@@ -83,7 +83,7 @@
         </span>
         <span id = "modal-close">
             <button id = "btn-modal-close" onclick="modal_close()">
-            <i class="fa-solid fa-xmark"></i>
+                <i class="fa-solid fa-xmark"></i>
             </button>
         </span>
     </section>

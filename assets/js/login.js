@@ -36,7 +36,7 @@ document.forms[0].addEventListener("submit", (e)=>{
             $("#id_age").val(user.age)
             $("#id_gender").val(user.gender)
             $("#id_address").val(user.address)
-            $("#id_num").val("0" + user.num)
+            $("#id_num").val(user.num)
             $("#id_bday").val(user.bday)
             modal_open(); 
         }else{

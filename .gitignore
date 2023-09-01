@@ -30,3 +30,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+
+infd.txt
+/application/config/system_var.php
