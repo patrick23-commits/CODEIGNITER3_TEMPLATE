@@ -156,18 +156,19 @@ function edit(id) {
 
 function del(id) {
     modal_open("del")
-    // const form = new FormData();
-    // form.append("id", id);
+    
+    const form = new FormData();
+    form.append("id", id);
 
-    // fetch("./login/delete", {
-    //     method : "POST",
-    //     body : form
+    fetch("./login/delete", {
+        method : "POST",
+        body : form
 
-    // }).then(result=>{
-    //     console.log(result)
-    //     load_data()
-    //     addNotif("Accout Deleted!", "Successfully deleted!", "g")
-    // })
+    }).then(result=>{
+        console.log(result)
+        load_data()
+        addNotif("Accout Deleted!", "Successfully deleted!", "g")
+    })
 }
 
 function modal_close() {

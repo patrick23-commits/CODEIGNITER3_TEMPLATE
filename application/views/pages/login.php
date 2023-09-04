@@ -12,7 +12,7 @@
     </div>
     <div id="home" class="tab ">
         <div class="card p-5 m-3 shadow-lg ">
-            <h1>WELCOME!</h1>
+            <h1>WELCOME!!</h1>
         </div>
     </div>
     <div id="data" class="tab hide">
@@ -119,7 +119,7 @@
             SAVE
         </button>
 
-        <button id="btn-del-user" class="btn btn-warning hide">
+        <button id="btn-del-user"  class="btn btn-warning hide">
             DELETE    
         </button>
     </section>

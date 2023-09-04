@@ -12,5 +12,12 @@ $route['edit'] = 'login/edit';
 $route['delete'] = 'login/delete';
 $route['save'] = 'login/save_user';
 
+
+#for alliah
+$route['alliah'] = 'AlliahController/index';
+$route['alliah-login'] ='AlliahController/login';
+$route['main-view'] = 'AlliahController/main';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
